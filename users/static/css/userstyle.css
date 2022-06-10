@@ -1,0 +1,7 @@
+body{
+   /* background-color: rgb(83, 162, 222); */
+   background: url('/static/images/jobedit.jpg');
+   background-size: 1537px 900px;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+}

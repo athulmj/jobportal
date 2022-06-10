@@ -1,0 +1,31 @@
+{%extends 'emp-base.html'%}
+
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 mt-3">
+            <div class="card" style="width: 23rem;">
+                <img src="{{applican.applicant.candidates.profile_pic.url}}" class="card-img-top " height="220px" width="100px"alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Name : {{applican.applicant}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Age : {{applican.applicant.candidates.age}}</li>
+                    <li class="list-group-item">Email : {{applican.applicant.email}}</li>
+                    <li class="list-group-item">Phone : {{applican.applicant.phone}}</li>
+                    <li class="list-group-item">Qualification : {{applican.applicant.candidates.qualification}}</li>
+                    <li class="list-group-item">Skills : {{applican.applicant.candidates.skills}}</li>
+                    <li class="list-group-item">Applied Date : {{applican.date}}</li>
+                    <li class="list-group-item">CV : <a href="{{applican.applicant.candidates.cv.url}}">Download</li>
+                </ul>
+            </div>
+            <div class="p-2">
+                <a href="{%url 'accept' applican.id%}" class="card-link btn btn-success">Accept</a>
+                <a href="{%url 'reject' applican.id%}" class="card-link btn btn-danger">Reject</a>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}

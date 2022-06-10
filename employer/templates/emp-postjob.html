@@ -1,0 +1,22 @@
+{%extends 'emp-base.html'%}
+
+{%block body_block%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h1 class="text-center card-header bg-transparent border-success text-white"
+                style="-webkit-text-stroke: 0.3px black">Post New Job</h1>
+            <form class="f1" action="" method="post">
+                {%csrf_token%}
+                {{form.as_p}}
+                <input type="submit" value="Register" class="btn btn-success mb-3 d-grid gap-2 col-6 mx-auto"
+                       style="--bs-btn-padding-y: .6rem; --bs-btn-padding-x: 5rem; --bs-btn-font-size: 1rem;">
+            </form>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+
+{%endblock%}

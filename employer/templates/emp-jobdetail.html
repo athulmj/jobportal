@@ -1,0 +1,29 @@
+{%extends 'emp-base.html'%}
+
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+            <div class=" col-8 mt-3 card text-center">
+                <div class="card-header">
+                    <h4 class="text-white bg-success" style="line-height:2.3;">Job Details</h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{job.job_title}}</h5>
+                    <p class="card-text">Posted By : {{job.posted_by}}</p>
+                    <p class="card-text">Description : {{job.job_description}}</p>
+                    <p class="card-text">Post : {{job.role}}</p>
+                    <p class="card-text">Experience : {{job.experience}}</p>
+                    <p class="card-text">Job Location : {{job.location}}</p>
+                    <p class="card-text">Salary : ₹.{{job.salary}}</p>
+                    <p class="card-text">Qualification : {{job.qualification}}</p>
+                    <p class="card-text">Created Date : {{job.created_date}}</p>
+                    <p class="card-text">Last Date : {{job.last_date}}</p>
+                </div>
+
+            </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+{%endblock%}
+

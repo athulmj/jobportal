@@ -1,0 +1,53 @@
+{%extends 'emp-base.html'%}
+
+{%block body_block%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            {%for job in jobs%}
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5>Job Title : {{job.job_title}}</h5>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Designation : {{job.role}}</h5>
+                    <p class="card-text">Created Date : {{job.created_date}}</p>
+                    <a href="{%url 'emp-detailjob' job.id%}" class="btn btn-primary">View</a>
+                    <a href="{%url 'emp-editjob' job.id%}" class="btn btn-primary">Update</a>
+                    <a href="{%url 'emp-viewapp' job.id%}" class="btn btn-primary">View Applications</a>
+                    <a href="{%url 'emp-acceptapplist' job.id%}" class="btn btn-primary">Accepted Applications</a>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 ms-5">
+            <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1" class="link-light">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="link-light">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="link-light">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="link-light">last &raquo;</a>
+        {% endif %}
+    </span>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+
+{%endblock%}
+

@@ -1,0 +1,25 @@
+{%extends 'cand-base.html'%}
+
+{%block body_block%}
+<div class="container p-3">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            {%for appl in applied%}
+            <div class="list-group p-2">
+                <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Job Title : {{appl.job.job_title}}</h5>
+                        <small>Status : {{appl.status}}</small>
+                    </div>
+                    <p class="mb-1">Job Description : {{appl.job.job_description}}</p>
+                    <small>Applied Date : {{appl.date}}</small>
+                </a>
+            </div>
+            {%endfor%}
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+{%endblock%}
+

@@ -1,0 +1,76 @@
+{%extends 'cand-base.html'%}
+
+{%block body_block%}
+<!--<div class="container-fluid">-->
+<!--    <h1>Welcome Candidate - {{request.user}}</h1>-->
+
+<!--    {%if request.user.candidates%}-->
+<!--    <a href="{%url 'cand-detailprofile'%}" class="btn btn-warning">View Profile</a>-->
+<!--    {%else%}-->
+<!--    <a href="{%url 'cand-addprofile'%}" class="btn btn-warning">Add Profile</a>-->
+<!--    {%endif%}-->
+<!--    <a href="{%url 'cand-appliedjobs' %}" class="btn btn-warning">Applied Jobs</a>-->
+<!--    <a href="{%url 'cand-acceptjob' %}" class="btn btn-warning">Notifications</a>-->
+<!--</div>-->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10 mt-2">
+                <form class="f1" action="" method="get">
+                    <div class="row">
+                        <div class="col-1">Company{{filter.form.posted_by}}</div>
+                        <div class="col-2">Job{{filter.form.job_title}}</div>
+                        <div class="col-2">Role{{filter.form.role}}</div>
+                        <div class="col-2">Location{{filter.form.location}}</div>
+                        <div class="col-2">Salary{{filter.form.salary}}</div>
+                        <div class="col-2">Qualification{{filter.form.qualification}}</div>
+                        <div class="col-1 mt-4"><input type="submit" class="btn btn-primary btn-sm"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="col-4"></div>
+        <div class="col-4 p-3">
+            {%for job in filter.qs%}
+            <div class="card text mt-3" style="max-width: 28rem; background-color: #7ac8ff;">
+                <div class="card-header fw-bold ">Job Title : {{job.job_title}}</div>
+                <div class="card-body ">
+                    <h5 class="card-title">Job Role : {{job.role}}</h5>
+                    <p class="card-text">Description : {{job.job_description}}</p>
+                    <p class="card-text">Posted By : {{job.posted_by.username}}</p>
+                </div>
+                <div class="card-footer bg-transparent border-success "><a href="{%url 'cand-detailjob' job.id %}"
+                                                                           class="btn btn-success">View</a></div>
+            </div>
+            {%endfor%}
+        </div>
+        <div class="col-4"></div>
+    </div>
+  <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 ms-5">
+            <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1" class="link-light">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="link-light">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="link-light">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="link-light">last &raquo;</a>
+        {% endif %}
+    </span>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}

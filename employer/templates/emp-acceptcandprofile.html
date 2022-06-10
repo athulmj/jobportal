@@ -1,0 +1,27 @@
+{%extends 'emp-base.html'%}
+
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 mt-3">
+            <div class="card" style="width: 23rem;">
+                <img src="{{candaccept.applicant.candidates.profile_pic.url}}" class="card-img-top " height="220px" width="100px"alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Name : {{candaccept.applicant}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Age : {{candaccept.applicant.candidates.age}}</li>
+                    <li class="list-group-item">Email : {{candaccept.applicant.email}}</li>
+                    <li class="list-group-item">Phone : {{candaccept.applicant.phone}}</li>
+                    <li class="list-group-item">Qualification : {{candaccept.applicant.candidates.qualification}}</li>
+                    <li class="list-group-item">Skills : {{candaccept.applicant.candidates.skills}}</li>
+                    <li class="list-group-item">Applied Date : {{candaccept.date}}</li>
+                    <li class="list-group-item">CV : <a href="{{candaccept.applicant.candidates.cv.url}}">Download</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}
